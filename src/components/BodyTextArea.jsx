@@ -25,7 +25,10 @@ export default function BodyTextArea({ defaultText, bodyRef }) {
 
 BodyTextArea.propTypes = {
   defaultText: PropTypes.string,
-  bodyRef: PropTypes.bool,
+  bodyRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
 };
 
 BodyTextArea.defaultProps = {
