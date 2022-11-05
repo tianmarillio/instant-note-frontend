@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default function AuthToggler({ activePage = null }) {
+export default function AuthToggler({ activePage }) {
   const isLoginPage = activePage === 'login';
   const isRegisterPage = activePage === 'register';
 
@@ -20,3 +21,11 @@ export default function AuthToggler({ activePage = null }) {
     </div>
   );
 }
+
+AuthToggler.propTypes = {
+  activePage: PropTypes.string,
+};
+
+AuthToggler.defaultProps = {
+  activePage: null,
+};

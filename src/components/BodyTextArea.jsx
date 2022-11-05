@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function BodyTextArea({ defaultText = '', bodyRef = null }) {
+export default function BodyTextArea({ defaultText, bodyRef }) {
   return (
     <textarea
       ref={bodyRef}
@@ -21,3 +22,13 @@ export default function BodyTextArea({ defaultText = '', bodyRef = null }) {
     />
   );
 }
+
+BodyTextArea.propTypes = {
+  defaultText: PropTypes.string,
+  bodyRef: PropTypes.bool,
+};
+
+BodyTextArea.defaultProps = {
+  defaultText: '',
+  bodyRef: null,
+};

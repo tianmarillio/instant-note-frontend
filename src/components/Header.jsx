@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import useAuth from '../hooks/useAuth';
 
 export default function Header({ hideHome, hideLogout }) {
@@ -29,3 +30,13 @@ export default function Header({ hideHome, hideLogout }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  hideHome: PropTypes.bool,
+  hideLogout: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  hideHome: false,
+  hideLogout: false,
+};
