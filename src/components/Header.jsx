@@ -16,15 +16,15 @@ export default function Header({ hideHome, hideLogout }) {
       {hideHome ? (
         <div />
       ) : (
-        <div className="bg-orange-200" onClick={() => navigate('/')}>
+        <button type="button" className="bg-orange-200" onClick={() => navigate('/')}>
           HOME
-        </div>
+        </button>
       )}
 
       {hideLogout ? null : (
-        <div className="bg-red-200" onClick={handleLogout}>
+        <button type="button" className="bg-red-200" onClick={handleLogout}>
           LOGOUT
-        </div>
+        </button>
       )}
     </div>
   );

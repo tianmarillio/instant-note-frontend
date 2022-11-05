@@ -1,16 +1,16 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../../api/axios';
 import Logo from '../../assets/logo.png';
 
 import AuthToggler from '../../components/AuthToggler';
-import AuthContext from '../../contexts/auth';
+import useAuthContext from '../../hooks/useAuthContext';
 
 export default function Register() {
   const navigate = useNavigate();
   const inputEmail = useRef();
   const inputPassword = useRef();
-  const { login } = useContext(AuthContext);
+  const { login } = useAuthContext();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -54,7 +54,9 @@ export default function Register() {
           </div>
 
           <div>
-            <button className="px-4 py-2 bg-slate-500 text-slate-200 rounded w-full">REGISTER</button>
+            <button type="submit" className="px-4 py-2 bg-slate-500 text-slate-200 rounded w-full">
+              REGISTER
+            </button>
           </div>
         </form>
       </div>

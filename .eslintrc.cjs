@@ -4,7 +4,11 @@ module.exports = {
     es2021: true,
   },
   extends: ['plugin:react/recommended', 'airbnb'],
-  overrides: [],
+  overrides: [
+    {
+      files: ['*.jsx', '*.js'],
+    },
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',

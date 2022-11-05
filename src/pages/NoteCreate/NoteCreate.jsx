@@ -1,17 +1,15 @@
-import React, {
-  useEffect, useContext, useState, useRef,
-} from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import BodyTextArea from '../../components/BodyTextArea';
-import AuthContext from '../../contexts/auth';
 import axios from '../../api/axios';
 import Header from '../../components/Header';
+import useAuthContext from '../../hooks/useAuthContext';
 
 export default function NoteCreate() {
   const navigate = useNavigate();
   const title = useRef();
   const body = useRef();
-  const { userToken } = useContext(AuthContext);
+  const { userToken } = useAuthContext();
 
   const postNote = async (url, payload) => {
     await axios.post(url, payload, {
@@ -52,7 +50,7 @@ export default function NoteCreate() {
           <BodyTextArea bodyRef={body} />
         </div>
         <div className="bg-blue-300 w-full flex">
-          <button className="px-4 py-2 bg-slate-500 text-slate-200 w-full flex-[6]">Save</button>
+          <button type="submit" className="px-4 py-2 bg-slate-500 text-slate-200 w-full flex-[6]">Save</button>
           <Link
             to="/"
             type="button"

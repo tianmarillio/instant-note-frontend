@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BodyTextArea({ defaultText, bodyRef }) {
+export default function BodyTextArea({ defaultText = '', bodyRef = null }) {
   return (
     <textarea
       ref={bodyRef}

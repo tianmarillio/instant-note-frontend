@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Item from './Item';
-import AuthContext from '../../contexts/auth';
+import useAuthContext from '../../hooks/useAuthContext';
 
 import axios from '../../api/axios';
 import Header from '../../components/Header';
 
 export default function NoteList() {
-  const { userToken } = useContext(AuthContext);
+  const { userToken } = useAuthContext();
   const [items, setItems] = useState([]);
 
   const getNotes = async () => {
@@ -24,15 +24,13 @@ export default function NoteList() {
 
   useEffect(() => {
     if (!userToken) return;
-
-    const fetchData = async () => await getNotes();
-    fetchData();
+    getNotes();
   }, [userToken]);
 
   return (
     <div className="h-screen flex flex-col">
-      <div className='flex-1'>
-        <Header hideHome={true} />
+      <div className="flex-1">
+        <Header hideHome />
       </div>
       <div className="p-2 bg-blue-200 h-screen flex flex-col flex-[17]">
         <div className="flex-[11]">
@@ -42,7 +40,7 @@ export default function NoteList() {
         </div>
         <div className="flex-[1] flex justify-center">
           <Link to="/create" className="w-full">
-            <button className="px-4 py-2 rounded w-full bg-green-200 h-full">
+            <button type="button" className="px-4 py-2 rounded w-full bg-green-200 h-full">
               Create New Note
             </button>
           </Link>

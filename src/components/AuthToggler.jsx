@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function AuthToggler({ activePage }) {
+export default function AuthToggler({ activePage = null }) {
   const isLoginPage = activePage === 'login';
   const isRegisterPage = activePage === 'register';
 
